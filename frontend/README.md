@@ -1,48 +1,79 @@
-# test
+# BobMP3 Frontend ⚡
 
-This template should help get you started developing with Vue 3 in Vite.
+The user interface for **BobMP3**, built with **Vue 3**, **TypeScript**, **Vite**, and **Tailwind CSS**.
 
-## Recommended IDE Setup
+## 🛠️ Tech Stack
 
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+- **Framework**: [Vue 3](https://vuejs.org/) (Composition API with `<script setup>`)
+- **Build Tool**: [Vite](https://vite.dev/)
+- **Language**: [TypeScript](https://www.typescriptlang.org/)
+- **Styling**: [Tailwind CSS v4](https://tailwindcss.com/)
+- **State Management**: [Pinia](https://pinia.vuejs.org/)
 
-## Recommended Browser Setup
+---
 
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
+## 📋 Prerequisites
 
-## Type Support for `.vue` Imports in TS
+- **Node.js**: `^20.19.0` or `>=22.12.0`
+- **npm**: `v10+`
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+---
 
-## Customize configuration
+## 🚀 Getting Started
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+### 1. Install Dependencies
 
-## Project Setup
-
-```sh
+```bash
+cd frontend
 npm install
 ```
 
-### Compile and Hot-Reload for Development
+### 2. Environment Configuration
 
-```sh
+Copy the example environment file and configure the backend URL:
+
+```bash
+cp .env.example .env
+```
+
+Ensure `.env` contains:
+```env
+VITE_API_URL=http://localhost:8001
+```
+
+### 3. Development Server
+
+Start Vite dev server with hot-reload:
+
+```bash
 npm run dev
 ```
 
-### Type-Check, Compile and Minify for Production
+The application will be accessible at [http://localhost:5173](http://localhost:5173).
 
-```sh
-npm run build
+---
+
+## 📜 Available Scripts
+
+| Command | Description |
+| :--- | :--- |
+| `npm run dev` | Starts local development server |
+| `npm run build` | Runs type checks and builds production bundle in `dist/` |
+| `npm run preview` | Previews production build locally |
+| `npm run type-check` | Runs `vue-tsc` for type checking |
+| `npm run lint` | Runs linter checks (`oxlint` & `eslint`) |
+| `npm run format` | Formats code with `oxfmt` |
+
+---
+
+## 🐳 Docker Deployment
+
+### Build Image
+```bash
+docker build -t bobmp3-frontend .
 ```
 
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
+### Run Container
+```bash
+docker run -d -p 8002:80 --env-file .env bobmp3-frontend
 ```
