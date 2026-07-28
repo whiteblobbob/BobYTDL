@@ -1,0 +1,16 @@
+# Netscape HTTP Cookie File
+# http://curl.haxx.se/rfc/cookie_spec.html
+# This is a sample Netscape cookie file for yt-dlp.
+#
+# Instructions:
+# 1. Copy this file to `cookies.txt` in the backend directory.
+# 2. Replace the example lines below with your actual YouTube cookies.
+#    You can export cookies using a browser extension like "Get cookies.txt LOCALLY"
+#    or run `yt-dlp --cookies-from-browser chrome --cookies cookies.txt` locally.
+#
+# Domain	IncludeSubdomains	Path	Secure	Expiration	Name	Value
+.youtube.com	TRUE	/	FALSE	0	PREF	tz=UTC
+.youtube.com	TRUE	/	TRUE	2147483647	__Secure-1PSID	YOUR_1PSID_COOKIE_HERE
+.youtube.com	TRUE	/	TRUE	2147483647	__Secure-3PSID	YOUR_3PSID_COOKIE_HERE
+.youtube.com	TRUE	/	TRUE	2147483647	VISITOR_INFO1_LIVE	YOUR_VISITOR_INFO_HERE
+.youtube.com	TRUE	/	TRUE	0	YSC	YOUR_YSC_COOKIE_HERE

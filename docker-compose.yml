@@ -1,0 +1,43 @@
+services:
+  bobmp3-backend:
+    container_name: bobmp3-backend
+    build: ./backend
+    image: bobmp3-backend
+    ports:
+      - "8001:8000"
+    networks:
+      - public-proxy-net
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 256M
+        reservations:
+          cpus: '0.1'
+          memory: 64M
+    volumes:
+      - ./backend/cookies.txt:/app/cookies.txt:rw
+  bobmp3-frontend:
+    container_name: bobmp3-frontend
+    build: ./frontend
+    image: bobmp3-frontend
+    ports:
+      - "8002:80"
+    networks:
+      - public-proxy-net
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 256M
+        reservations:
+          cpus: '0.1'
+          memory: 64M
+    env_file:
+      - ./frontend/.env
+
+networks:
+  public-proxy-net:
+    external: true
