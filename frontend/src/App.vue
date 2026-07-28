@@ -28,7 +28,7 @@ const handleSubmit = async (type: string) => {
   converting.value = true
   ready.value = false
 
-  const res = await fetch(`${API_URL}/${path}/?${params.toString()}`)
+  const res = await fetch(`${API_URL}/${path}?${params.toString()}`)
 
   let filename = res.headers.get('Content-Disposition')
 
