@@ -2,7 +2,7 @@ services:
   bobmp3-backend:
     container_name: bobmp3-backend
     build: ./backend
-    image: bobmp3-backend
+    image: whiteblobbob/bobmp3-backend
     ports:
       - "8001:8000"
     networks:
@@ -21,7 +21,7 @@ services:
   bobmp3-frontend:
     container_name: bobmp3-frontend
     build: ./frontend
-    image: bobmp3-frontend
+    image: whiteblobbob/bobmp3-frontend
     ports:
       - "8002:80"
     networks:
