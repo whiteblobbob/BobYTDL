@@ -1,8 +1,8 @@
 services:
-  bobmp3-backend:
-    container_name: bobmp3-backend
+  bobytdl-backend:
+    container_name: bobytdl-backend
     build: ./backend
-    image: whiteblobbob/bobmp3-backend
+    image: whiteblobbob/bobytdl-backend
     ports:
       - "8001:8000"
     networks:
@@ -18,10 +18,10 @@ services:
           memory: 64M
     volumes:
       - ./backend/cookies.txt:/app/cookies.txt:rw
-  bobmp3-frontend:
-    container_name: bobmp3-frontend
+  bobytdl-frontend:
+    container_name: bobytdl-frontend
     build: ./frontend
-    image: whiteblobbob/bobmp3-frontend
+    image: whiteblobbob/bobytdl-frontend
     ports:
       - "8002:80"
     networks:

@@ -1,7 +1,7 @@
 services:
-  bobmp3-backend:
-    container_name: bobmp3-backend
-    image: whiteblobbob/bobmp3-backend
+  bobytdl-backend:
+    container_name: bobytdl-backend
+    image: whiteblobbob/bobytdl-backend
     networks:
       - public-proxy-net
     restart: unless-stopped
@@ -15,9 +15,9 @@ services:
           memory: 64M
     volumes:
       - ./cookies.txt:/app/cookies.txt:rw
-  bobmp3-frontend:
-    container_name: bobmp3-frontend
-    image: whiteblobbob/bobmp3-frontend
+  bobytdl-frontend:
+    container_name: bobytdl-frontend
+    image: whiteblobbob/bobytdl-frontend
     networks:
       - public-proxy-net
     restart: unless-stopped
