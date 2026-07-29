@@ -14,9 +14,9 @@ jobs:
       - name: Log in to Docker Hub
         run:
           echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
-      - name: Create temporary .env
+      - name: Create Temporary Frontend .env
         run:
-          echo "${{ secrets.VITE_API_URL }}" >> .env
+          echo "${{ secrets.VITE_API_URL }}" >> ./frontend/.env
       - name: Build Images
         run: |
           docker compose build
