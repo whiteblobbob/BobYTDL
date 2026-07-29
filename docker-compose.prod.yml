@@ -1,0 +1,37 @@
+services:
+  bobmp3-backend:
+    container_name: bobmp3-backend
+    image: whiteblobbob/bobmp3-backend
+    networks:
+      - public-proxy-net
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 256M
+        reservations:
+          cpus: '0.1'
+          memory: 64M
+    volumes:
+      - ./cookies.txt:/app/cookies.txt:rw
+  bobmp3-frontend:
+    container_name: bobmp3-frontend
+    image: whiteblobbob/bobmp3-frontend
+    networks:
+      - public-proxy-net
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 256M
+        reservations:
+          cpus: '0.1'
+          memory: 64M
+    env_file:
+      - ./.env
+
+networks:
+  public-proxy-net:
+    external: true
